@@ -54,8 +54,8 @@ public class DicomConverter {
 	            Namespace res = parser.parseArgs(args);
 	            path = res.get("src");
 	            System.out.println(path);
-	            if(!new File(path).exists() && !new File(path).isDirectory())
-	            	throw new ArgumentParserException("path must be a valid directory!",parser);
+	            if(path == null || !new File(path).exists() && !new File(path).isDirectory())
+	            	throw new ArgumentParserException("src must be set to a dicom directory",parser);
 	            if(res.get("bsize")!=null)
 	            	batchSize = res.get("bsize");
 	            overwriteMode = res.get("force");

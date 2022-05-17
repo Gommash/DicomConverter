@@ -39,7 +39,7 @@ public class DicomConverterValidator {
 	            path = res.get("src");
 	            batchSize = res.get("batchsize");
 	            
-	            if(!new File(path).exists() && !new File(path).isDirectory())
+	            if(path==null || !new File(path).exists() && !new File(path).isDirectory())
 	            	throw new ArgumentParserException("path must be a valid directory!",parser);
 	            
 	        } catch (ArgumentParserException e) {
